@@ -6,7 +6,6 @@ type Props = {
 export const ToDoElement = (props: Props) => {
 
     const handleDelete = () => {
-        console.log("usuniecie" + props.index)
         props.onDelete(props.index)
     }
 
