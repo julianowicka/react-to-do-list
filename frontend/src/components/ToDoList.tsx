@@ -1,8 +1,8 @@
 import {ToDoElement} from "./ToDoElement";
-import {ChangeEventHandler, useState} from "react";
+import {ChangeEventHandler, useCallback, useState} from "react";
 
 export const ToDoList = () => {
-    const [tasks, setTasks] = useState(["Wspólna nauka", "Omówienie spraw", "Ugotować kolacje", "Obejrzeć The Bpys"])
+    const [tasks, setTasks] = useState(["Wspólna nauka", "Omówienie spraw", "Ugotować kolacje", "Obejrzeć The Boys"])
 
     const handleAdd = () => {
         const newTable = [...tasks]
@@ -11,12 +11,12 @@ export const ToDoList = () => {
         setInputValue("")
     }
 
-    const handleDelete = (i: number) => {
+    const handleDelete = useCallback((i: number) => {
         const newTable = [...tasks];
         newTable.splice(i, 1)
 
         setTasks(newTable)
-    }
+    }, [tasks]);
 
     const [inputValue, setInputValue] = useState("")
 
