@@ -5,13 +5,15 @@ type Props = {
 }
 export const ToDoElement = (props: Props) => {
 
+    const {taskName, index, onDelete: handleDeleteElement} = props;
+
     const handleDelete = () => {
-        props.onDelete(props.index)
+        handleDeleteElement(index)
     }
 
     return (
         <li>
-            Task {props.index}: {props.taskName}
+            Task {index}: {taskName}
             <button onClick={handleDelete}>Usuń</button>
         </li>
     )
