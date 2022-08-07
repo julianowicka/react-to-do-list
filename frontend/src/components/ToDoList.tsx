@@ -1,5 +1,6 @@
 import {ToDoElement} from "./ToDoElement";
 import {ChangeEventHandler, useCallback, useState} from "react";
+import {Button, Input, Typography} from "@mui/material";
 
 export const ToDoList = () => {
     const [tasks, setTasks] = useState(["Wspólna nauka", "Omówienie spraw", "Ugotować kolacje", "Obejrzeć The Boys"])
@@ -27,7 +28,7 @@ export const ToDoList = () => {
     return (
         <div>
 
-            <h2> Lista </h2>
+            <Typography variant="h2"> Lista </Typography>
             <ul>
                 {
                     tasks.map((task, i) => {
@@ -37,8 +38,8 @@ export const ToDoList = () => {
                 }
             </ul>
 
-            <input onChange={handleChange} value={inputValue}/>
-            <button onClick={handleAdd}>Dodaj</button>
+            <Input onChange={handleChange} value={inputValue}/>
+            <Button onClick={handleAdd}>Dodaj</Button>
         </div>
     )
 }

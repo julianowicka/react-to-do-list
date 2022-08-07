@@ -1,3 +1,6 @@
+import {Button, Checkbox, FormControlLabel} from "@mui/material";
+import React from "react";
+
 type Props = {
     taskName: string,
     index: number,
@@ -10,11 +13,26 @@ export const ToDoElement = (props: Props) => {
     const handleDelete = () => {
         handleDeleteElement(index)
     }
+    const [checked, setChecked] = React.useState(true);
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+    };
 
     return (
         <li>
-            Task {index}: {taskName}
-            <button onClick={handleDelete}>Usuń</button>
+            <FormControlLabel
+                control={
+                    <Checkbox
+                        checked={checked}
+                        onChange={handleChange}
+                    />
+                    }
+                    label={`Task ${index}: ${taskName}`}
+
+            />
+
+            <Button onClick={handleDelete}>Usuń</Button>
         </li>
-    )
+    );
 }
